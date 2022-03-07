@@ -84,7 +84,7 @@ def flu_hospital_count_extract_data_from_local_copy():
     start_date = request.args.get('start');
     end_date = request.args.get('end');
 
-    sql_statement = __sql_flu_count(hospital_location, start_date, end_date, True);
+    sql_statement = __sql_flu_count(hospital_location, start_date, end_date, True, False);
     print(sql_statement)
 
     with sqlite3.connect(setting.DATABASE) as connection:
@@ -92,6 +92,18 @@ def flu_hospital_count_extract_data_from_local_copy():
     
     return jsonify(result.to_dict());
 
+@app.route('/flu_hospital_count_forecast_force')
+def flu_hospital_count_force_from_remote_databricks():
+    hospital_location = request.args.get('hosp');
+    start_date = request.args.get('start');
+    end_date = request.args.get('end');
+
+    sql_statement = __sql_flu_count(hospital_location, start_date, end_date, True, True);
+    print(sql_statement)
+
+    result = spark.sql(sql_statement).toPandas();
+    
+    return jsonify(result.to_dict());
 
 if __name__ == '__main__':
     app.run(debug = True);
