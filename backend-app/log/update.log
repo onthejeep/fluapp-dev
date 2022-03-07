@@ -1,0 +1,6 @@
+2022-03-07 18:15:32,586 - root - INFO - Retrieve data from databricks, DB = resp_forecasting
+2022-03-07 18:22:10,989 - root - INFO - Save data to local sqlite, save to Table = all_hospital_forecast_flu_count
+2022-03-07 18:22:11,657 - root - INFO - Create index on all_hospital_forecast_flu_count
+2022-03-07 18:22:11,799 - root - INFO - Retrieve data from databricks, DB = resp_forecasting
+2022-03-07 18:22:15,173 - root - INFO - Save data to local sqlite, save to Table = all_hospital_forecast_flu_hospital_count
+2022-03-07 18:22:15,643 - root - INFO - Create index on all_hospital_forecast_flu_hospital_count
